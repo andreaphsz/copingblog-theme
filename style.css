@@ -1,0 +1,54 @@
+/*
+Theme Name:     Blogpraktikum
+Theme URI:      http://blogpraktikum.ch/
+Description:    Blogpraktikum child theme for blogpraktikum.ch
+Author:         Andrea Cantieni
+Template:       twentyeleven
+Version:        0.1
+*/
+
+@import url("../twentyeleven/style.css");
+
+#page{
+	background-color: inherit;
+}
+
+#branding{
+	background: url("images/headers/blogpraktikum.png") no-repeat;
+	/*height: 120px;*/
+	background-color: #008648;
+	
+	border-radius: 8px;
+	box-shadow: rgba(200, 200, 200, 1) 0 2px 10px;
+}
+
+#content{
+	margin: 0 34% 0 2%;
+	width: 70%;
+}
+
+.box-left-copingblog{
+	background-color: white;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-left: -20px;
+	
+	border: 1px solid #E4E4E4;
+	border-radius: 8px;
+	box-shadow: rgba(200, 200, 200, 1) 0 2px 10px;
+}
+
+#new-posting-copingblog{
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+}
+
+.box-right-copingblog{
+	background-color: white;
+	margin-right: 0px !important;
+	padding: 10px 30px 10px 40px;
+	
+	border: 1px solid #E4E4E4;
+	border-radius: 8px;
+	box-shadow: rgba(200, 200, 200, 1) 0 2px 10px;
+}
