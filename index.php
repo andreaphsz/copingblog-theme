@@ -17,31 +17,24 @@ get_header(); ?>
 		<div id="primary">
 			<div id="content" role="main">
 
-				<div id="new-posting-copingblog" class="box-left-copingblog">
-					<div class="menu-copingblog">
-					<h1 class="entry-title"><a href="/">blogpraktikum.ch</a></h1>
-					<a href="/">Frontseite</a> |
-					<a href="/">FAQ</a> |
-					<a href="/">Impressum</a>
-					</div>
+				
 					<?php 
 						$current_user = wp_get_current_user(); 
 						$current_user_blog = get_active_blog_for_user($current_user->ID);
 						switch_to_blog($current_user_blog->blog_id);
 					?>
+					<?php if($current_user->ID > 0): ?>
+					<div id="new-posting-copingblog" class="box-left-copingblog">
 					<div>
-					<h1 class="entry-title"><a href="<?php echo get_bloginfo('wpurl') ?>/">Mein Weblog</a></h1>
-					<a href="<?php echo get_bloginfo('wpurl') ?>/">Frontseite</a> | 
-					<a href="<?php echo get_bloginfo('wpurl') ?>/wp-admin/">Dashboard</a>
-					
-					<p><br>Einen neuen Artikel schreiben<br>
-					<a href="<?php echo get_bloginfo('wpurl') ?>/wp-admin/post-new.php?visi=private">Privat</a> | 
-					<a href="<?php echo get_bloginfo('wpurl') ?>/wp-admin/post-new.php?visi=pwd">Passwortgesch&uuml;tzt</a> | 
-					<a href="<?php echo get_bloginfo('wpurl') ?>/wp-admin/post-new.php">&Ouml;ffentlich</a>
-					</p>
+						<h1 class="entry-title">Einen neuen Artikel schreiben</a></h1>
+						<a href="<?php echo get_bloginfo('wpurl') ?>/wp-admin/post-new.php">&Ouml;ffentlich</a> | 
+						<a href="<?php echo get_bloginfo('wpurl') ?>/wp-admin/post-new.php?visi=pwd">&Ouml;ffentlich mit Passwortschutz</a> | 
+						<a href="<?php echo get_bloginfo('wpurl') ?>/wp-admin/post-new.php?visi=private">Privat</a>
 					</div>
+					</div>
+					<?php endif;?>
 					<?php restore_current_blog(); ?>
-				</div>
+				
 			<div id="posts-copingblog" class="box-left-copingblog">
 			<?php if ( have_posts() ) : ?>
 

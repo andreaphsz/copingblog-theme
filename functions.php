@@ -11,11 +11,34 @@ function blogpraktikum_background_color()
 	<?php
 }
 */
+
+function blogpraktikum_login_redirect($redirect_to, $request){
+//    global $current_user;
+//    get_currentuserinfo();
+    
+	$current_user = wp_get_current_user(); 
+	$current_user_blog = get_active_blog_for_user($current_user->ID);
+//	switch_to_blog($current_user_blog->blog_id);
+var_dump($current_user_blog);die();
+//is there a user to check?
+    if(is_array($current_user->roles))
+    {
+        //check for admins
+        if(in_array("administrator", $current_user->roles))
+            return home_url("/wp-admin/");
+        else
+            return home_url();
+    }
+}
+//add_filter("login_redirect", "blogpraktikum_login_redirect", 100, 3);
+
+
 // Add support for custom headers.
 $custom_header_support = array(
 	// Callback for styling the header.
 	//'wp-head-callback' => 'blogpraktikum_background_color',
 	'height' => apply_filters( 'blogpraktikum_header_image_height', 188 ),
+	'width' => apply_filters( 'blogpraktikum_header_image_width', 960 ),
 );
 
 add_theme_support( 'custom-header', $custom_header_support );

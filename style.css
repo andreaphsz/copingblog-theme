@@ -9,8 +9,10 @@ Version:        0.1
 
 @import url("../twentyeleven/style.css");
 
+
 #page{
 	background-color: inherit;
+	max-width: 960px;
 }
 
 #branding{
@@ -27,8 +29,8 @@ Version:        0.1
 }
 
 .menu-copingblog{
-	border-bottom: 1px solid #DDD;
-	padding-bottom: 10px;
+	border-top: 1px solid #DDD;
+	margin-top: 15px;
 }
 
 #content{
