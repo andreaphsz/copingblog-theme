@@ -66,8 +66,10 @@ Version:        0.1
 
 #site-title{
 	padding: 0;
+	margin-left: -58px;
 }
 
 #site-description{
 	margin: 0;
+	margin-left: -58px;
 }
