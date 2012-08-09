@@ -45,8 +45,8 @@ function blogpraktikum_color_option()
 	</td>
 	</tr>
 -->
-	<tr valign="top" class="displaying-header-text">
-	<th scope="row"><?php echo "Blogpraktikum Farbe"; ?></th>
+	<tr valign="top">
+	<th scope="row"><?php echo "Blogpraktikum Farbe <br>(default: #298951)"; ?></th>
 	<td>
 		<p>
 			<input type="text" name="blogpraktikum-color" id="blogpraktikum-color" value="#<?php echo esc_attr( get_theme_mod('blogpraktikum_color') ); ?>" />
@@ -63,8 +63,6 @@ function blogpraktikum_color_option()
 	</tbody>
 	</table>
 	<?php
-	
-	echo "blogpraktikum-color: " . $_POST['blogpraktikum-color'];
 	
 }
 

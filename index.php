@@ -18,10 +18,29 @@ get_header(); ?>
 			<div id="content" role="main">
 
 				<div id="new-posting-copingblog" class="box-left-copingblog">
-					<h1 class="entry-title">Einen neuen Artikel schreiben</h1>
-					<a href="<?php site_url() ?>wp-admin/post-new.php?visi=private">Privat</a> | 
-					<a href="<?php site_url() ?>wp-admin/post-new.php?visi=pwd">Passwortgesch&uuml;tzt</a> | 
-					<a href="<?php site_url() ?>wp-admin/post-new.php">&Ouml;ffentlich</a>
+					<div class="menu-copingblog">
+					<h1 class="entry-title"><a href="/">blogpraktikum.ch</a></h1>
+					<a href="/">Frontseite</a> |
+					<a href="/">FAQ</a> |
+					<a href="/">Impressum</a>
+					</div>
+					<?php 
+						$current_user = wp_get_current_user(); 
+						$current_user_blog = get_active_blog_for_user($current_user->ID);
+						switch_to_blog($current_user_blog->blog_id);
+					?>
+					<div>
+					<h1 class="entry-title"><a href="<?php echo get_bloginfo('wpurl') ?>/">Mein Weblog</a></h1>
+					<a href="<?php echo get_bloginfo('wpurl') ?>/">Frontseite</a> | 
+					<a href="<?php echo get_bloginfo('wpurl') ?>/wp-admin/">Dashboard</a>
+					
+					<p><br>Einen neuen Artikel schreiben<br>
+					<a href="<?php echo get_bloginfo('wpurl') ?>/wp-admin/post-new.php?visi=private">Privat</a> | 
+					<a href="<?php echo get_bloginfo('wpurl') ?>/wp-admin/post-new.php?visi=pwd">Passwortgesch&uuml;tzt</a> | 
+					<a href="<?php echo get_bloginfo('wpurl') ?>/wp-admin/post-new.php">&Ouml;ffentlich</a>
+					</p>
+					</div>
+					<?php restore_current_blog(); ?>
 				</div>
 			<div id="posts-copingblog" class="box-left-copingblog">
 			<?php if ( have_posts() ) : ?>
