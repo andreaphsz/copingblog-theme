@@ -3,9 +3,13 @@
 function change_new_post_menu_item()
 {
 	global $wp_admin_bar;
-	
+	$current_user = wp_get_current_user();
+
+	if( $current_user->ID != 1) 
+	{
+		$wp_admin_bar->remove_node( 'my-sites' );
+	}
 	$wp_admin_bar->remove_node( 'new-post' );
-	$wp_admin_bar->remove_node( 'my-sites' );
 	$wp_admin_bar->remove_node( 'wp-logo' );
 }
 
