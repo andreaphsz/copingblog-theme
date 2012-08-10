@@ -21,21 +21,22 @@ get_header(); ?>
 					<?php 
 						$current_user = wp_get_current_user(); 
 						$current_user_blog = get_active_blog_for_user($current_user->ID);
-						switch_to_blog($current_user_blog->blog_id);
+						//switch_to_blog($current_user_blog->blog_id);
+						//var_dump($current_user_blog);
 					?>
 					<?php if($current_user->ID > 0): ?>
-					<div id="new-posting-copingblog" class="box-left-copingblog">
+					<div id="new-posting-copingblog" class="box-left-copingblog box-shadow-copingblog">
 					<div>
 						<h1 class="entry-title">Einen neuen Artikel schreiben</a></h1>
-						<a href="<?php echo get_bloginfo('wpurl') ?>/wp-admin/post-new.php">&Ouml;ffentlich</a> | 
-						<a href="<?php echo get_bloginfo('wpurl') ?>/wp-admin/post-new.php?visi=pwd">&Ouml;ffentlich mit Passwortschutz</a> | 
-						<a href="<?php echo get_bloginfo('wpurl') ?>/wp-admin/post-new.php?visi=private">Privat</a>
+						<a href="<?php echo $current_user_blog->siteurl ?>/wp-admin/post-new.php">&Ouml;ffentlich</a> | 
+						<a href="<?php echo $current_user_blog->siteurl ?>/wp-admin/post-new.php?visi=pwd">&Ouml;ffentlich mit Passwort</a> | 
+						<a href="<?php echo $current_user_blog->siteurl ?>/wp-admin/post-new.php?visi=private">Privat</a>
 					</div>
 					</div>
 					<?php endif;?>
-					<?php restore_current_blog(); ?>
+					<?php //restore_current_blog(); ?>
 				
-			<div id="posts-copingblog" class="box-left-copingblog">
+			<div id="posts-copingblog" class="box-left-copingblog box-shadow-copingblog">
 			<?php if ( have_posts() ) : ?>
 
 				<?php twentyeleven_content_nav( 'nav-above' ); ?>

@@ -17,7 +17,7 @@ Version:        0.1
 
 #branding{
 	background: url("images/headers/blogpraktikumbuch.png") no-repeat;
-	background-position-x : 97%;
+	background-position : 97% 0%;
 	/*height: auto;*/
 	padding-top: 55px;
 	background-color: #298951;
@@ -38,15 +38,17 @@ Version:        0.1
 	width: 70%;
 }
 
-.box-left-copingblog{
+.box-shadow-copingblog{
 	background-color: white;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-left: -20px;
-	
 	border: 1px solid #E4E4E4;
 	border-radius: 8px;
 	box-shadow: rgba(200, 200, 200, 1) 0 2px 10px;
+}
+
+.box-left-copingblog{
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-left: -20px;
 }
 
 #new-posting-copingblog{
@@ -55,13 +57,8 @@ Version:        0.1
 }
 
 .box-right-copingblog{
-	background-color: white;
 	margin-right: 0px !important;
 	padding: 10px 30px 10px 40px;
-	
-	border: 1px solid #E4E4E4;
-	border-radius: 8px;
-	box-shadow: rgba(200, 200, 200, 1) 0 2px 10px;
 }
 
 #site-title{

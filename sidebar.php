@@ -12,7 +12,7 @@ $current_layout = $options['theme_layout'];
 
 if ( 'content' != $current_layout ) :
 ?>
-		<div id="secondary" class="widget-area box-right-copingblog" role="complementary">
+		<div id="secondary" class="widget-area box-right-copingblog box-shadow-copingblog" role="complementary">
 			<aside id="wp_sidebarlogin" class="widget">
 				<?php the_widget('SidebarLoginMultiWidget',NULL,array('before_title'=>'<h3 class="widget-title">', 'after_title'=>'</h3>'))?>
 			</aside>

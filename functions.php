@@ -1,37 +1,73 @@
 <?php
-/*
-function blogpraktikum_background_color()
-{
-	?>
-	<style type="text/css">
-		#branding{
-			background-color: #<?php echo get_theme_mod('blogpraktikum_color')?> !important;
-		}
-	</style>
-	<?php
-}
-*/
 
-function blogpraktikum_login_redirect($redirect_to, $request){
-//    global $current_user;
-//    get_currentuserinfo();
-    
+function change_new_post_menu_item()
+{
+	global $wp_admin_bar;
+	
+	$wp_admin_bar->remove_node( 'new-post' );
+	$wp_admin_bar->remove_node( 'my-sites' );
+	$wp_admin_bar->remove_node( 'wp-logo' );
+}
+
+add_action('wp_before_admin_bar_render', 'change_new_post_menu_item');
+
+function add_new_post_menu_item()
+{
+	global $wp_admin_bar;
+ 
+	$args = array(
+		'id' => 'blogpraktikum-ch', // id of the existing child node (New > Post)
+		'title' => 'blogpraktikum.ch', // alter the title of existing node
+		'href' => '/',
+
+    );
+	
+	$wp_admin_bar->add_node($args);
+	
 	$current_user = wp_get_current_user(); 
 	$current_user_blog = get_active_blog_for_user($current_user->ID);
-//	switch_to_blog($current_user_blog->blog_id);
-var_dump($current_user_blog);die();
-//is there a user to check?
-    if(is_array($current_user->roles))
-    {
-        //check for admins
-        if(in_array("administrator", $current_user->roles))
-            return home_url("/wp-admin/");
-        else
-            return home_url();
-    }
-}
-//add_filter("login_redirect", "blogpraktikum_login_redirect", 100, 3);
+	
+	$args = array(
+		'id' => 'mein-blog',
+		'title' => $current_user_blog->blogname . "'s Blog",
+		'href' => $current_user_blog->siteurl,
 
+    );
+
+    $wp_admin_bar->add_node($args);
+	
+	$args = array(
+		'id' => 'post-public',
+		'title' => 'Artikel (&Ouml;ffentlich)',
+		'href' => site_url() . '/wp-admin/post-new.php',
+    	'parent' => 'new-content',
+    );
+
+    $wp_admin_bar->add_node($args);
+	
+	$args = array(
+    	'id' => 'post-pwd',
+    	'title' => 'Artikel (&Ouml;ffentlich mit Passwort)',
+    	'href' => site_url() . '/wp-admin/post-new.php?visi=pwd',
+    	'parent' => 'new-content',
+		//'meta' => array('class' => 'my-toolbar-page')
+  	);
+
+  	$wp_admin_bar->add_node($args);
+
+	$args = array(
+    	'id' => 'post-private',
+    	'title' => 'Artikel (Privat)',
+    	'href' => site_url() . '/wp-admin/post-new.php?visi=private',
+    	'parent' => 'new-content',
+		//'meta' => array('class' => 'my-toolbar-page')
+  	);
+
+	$wp_admin_bar->add_node($args);
+
+}
+
+add_action('admin_bar_menu', 'add_new_post_menu_item');
 
 // Add support for custom headers.
 $custom_header_support = array(
