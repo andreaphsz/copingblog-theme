@@ -18,7 +18,7 @@ if ( 'content' != $current_layout ) :
 			</aside>
 			<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) : ?>
 				
-				<aside id="archives" class="widget">
+	<!--			<aside id="archives" class="widget">
 					<h3 class="widget-title"><?php _e( 'Archives', 'twentyeleven' ); ?></h3>
 					<ul>
 						<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
@@ -33,7 +33,7 @@ if ( 'content' != $current_layout ) :
 						<?php wp_meta(); ?>
 					</ul>
 				</aside>
-
+	-->
 			<?php endif; // end sidebar widget area ?>
 		</div><!-- #secondary .widget-area -->
 <?php endif; ?>
