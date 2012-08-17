@@ -72,3 +72,13 @@ Version:        0.1
 	margin-left: -7%;
 	color: #111;
 }
+
+#link-to-edit-header {
+	margin-left: 89%;
+	font-size: 10pt;
+	margin-bottom: -10px;
+}
+
+#link-to-edit-header a{
+	color: white;
+}

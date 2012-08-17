@@ -118,7 +118,12 @@
 				<?php endif; // end check for featured image or standard header ?>
 			</a>
 			<?php endif; // end check for removed header image ?>
-
+			<?php if ( is_user_logged_in() ) :
+				$current_user = wp_get_current_user(); 
+				$current_user_blog = get_active_blog_for_user($current_user->ID);
+				?>
+				<div id="link-to-edit-header"><a href="<?php echo $current_user_blog->siteurl ?>/wp-admin/themes.php?page=custom-header">Kopfzeile &auml;ndern</a>
+			<?php endif;?>
 			<?php
 				// Has the text been hidden?
 				if ( 'blank' == get_header_textcolor() ) :
