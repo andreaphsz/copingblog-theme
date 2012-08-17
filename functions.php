@@ -227,3 +227,35 @@ if( (int) $_GET['step'] != 2 )
 {
 	add_action("admin_head-appearance_page_custom-header", 'js_');
 }
+
+
+add_filter( 'the_title', 'copingblog_modified_post_title', 10, 2);
+
+function copingblog_modified_post_title ($title, $id)
+{
+ 	$post = get_post($id);
+
+	if ( !is_admin() && empty($post->post_password) && 'private' != $post->post_status ) {
+    	$title = $title . '&nbsp;&nbsp;<img title="&Ouml;ffentlich" src="' . get_stylesheet_directory_uri() . '/images/icons/glyphicons_010_envelope.png" />';
+  	}
+  	return $title;
+}
+
+//see http://ben.lobaugh.net/blog/20041/wordpress-how-to-remove-protected-and-private-from-post-titles
+add_filter( 'protected_title_format', 'bl_remove_protected_title' );
+ 
+function bl_remove_protected_title( $title ) 
+{
+    // Return only the title portion as defined by %s, not the additional 
+    // 'Protected: ' as added in core
+    return "%s" . '&nbsp;&nbsp;<img title="&Ouml;ffentlich mit Passwort" src="' . get_stylesheet_directory_uri() . '/images/icons/glyphicons_128_message_lock.png" />';
+}
+
+add_filter( 'private_title_format', 'bl_remove_private_title' );
+ 
+function bl_remove_private_title( $title ) 
+{
+    // Return only the title portion as defined by %s, not the additional 
+    // 'Private: ' as added in core
+    return "%s" . '&nbsp;&nbsp;<img title="Privat" src="' . get_stylesheet_directory_uri() . '/images/icons/glyphicons_126_message_ban.png" />';
+}
