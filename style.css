@@ -82,3 +82,9 @@ Version:        0.1
 #link-to-edit-header a{
 	color: white;
 }
+
+#site-generator {
+	background-color: inherit;
+	border: 0;
+	margin-left: -26%;
+}

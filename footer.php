@@ -22,11 +22,12 @@
 					get_sidebar( 'footer' );
 			?>
 
-<!--			<div id="site-generator">
+			<div id="site-generator">
 				<?php do_action( 'twentyeleven_credits' ); ?>
 				<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'twentyeleven' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentyeleven' ); ?>" rel="generator"><?php printf( __( 'Proudly powered by %s', 'twentyeleven' ), 'WordPress' ); ?></a>
+				<a href="http://www.glyphicons.com/">and by glyphicons.com</a> <a href="http://creativecommons.org/licenses/by/3.0/deed.en">under CC-BY</a>
 			</div>
--->
+
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
