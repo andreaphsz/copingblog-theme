@@ -259,3 +259,63 @@ function bl_remove_private_title( $title )
     // 'Private: ' as added in core
     return "%s" . '&nbsp;&nbsp;<img title="Privat" src="' . get_stylesheet_directory_uri() . '/images/icons/glyphicons_126_message_ban.png" />';
 }
+
+//deregister the header images of Twenty Eleven, and register a few new RAW header images//
+//see http://wordpress.stackexchange.com/questions/40881/optimal-approach-for-replacing-the-8-header-images-in-a-child-theme
+add_action( 'after_setup_theme', 'raw_theme_header_images', 11 ); 
+
+function raw_theme_header_images() {
+	unregister_default_headers( array( 'wheel', 'shore', 'trolley', 'pine-cone', 'chessboard', 'lanterns', 'willow', 'hanoi' ) ); 
+	//$folder = get_stylesheet_directory_uri();
+	register_default_headers( array(
+		'wheel' => array(
+			'url' => '%2$s/images/headers/wheel.jpg',
+			'thumbnail_url' => '%s/images/headers/wheel-thumbnail.jpg',
+			/* translators: header image description */
+			'description' => __( 'Wheel', 'twentyeleven' )
+		),
+		'shore' => array(
+			'url' => '%2$s/images/headers/shore.jpg',
+			'thumbnail_url' => '%s/images/headers/shore-thumbnail.jpg',
+			/* translators: header image description */
+			'description' => __( 'Shore', 'twentyeleven' )
+		),
+		'trolley' => array(
+			'url' => '%2$s/images/headers/trolley.jpg',
+			'thumbnail_url' => '%s/images/headers/trolley-thumbnail.jpg',
+			/* translators: header image description */
+			'description' => __( 'Trolley', 'twentyeleven' )
+		),
+		'pine-cone' => array(
+			'url' => '%2$s/images/headers/pine-cone.jpg',
+			'thumbnail_url' => '%s/images/headers/pine-cone-thumbnail.jpg',
+			/* translators: header image description */
+			'description' => __( 'Pine Cone', 'twentyeleven' )
+		),
+		'chessboard' => array(
+			'url' => '%2$s/images/headers/chessboard.jpg',
+			'thumbnail_url' => '%s/images/headers/chessboard-thumbnail.jpg',
+			/* translators: header image description */
+			'description' => __( 'Chessboard', 'twentyeleven' )
+		),
+		'lanterns' => array(
+			'url' => '%2$s/images/headers/lanterns.jpg',
+			'thumbnail_url' => '%s/images/headers/lanterns-thumbnail.jpg',
+			/* translators: header image description */
+			'description' => __( 'Lanterns', 'twentyeleven' )
+		),
+		'willow' => array(
+			'url' => '%2$s/images/headers/willow.jpg',
+			'thumbnail_url' => '%s/images/headers/willow-thumbnail.jpg',
+			/* translators: header image description */
+			'description' => __( 'Willow', 'twentyeleven' )
+		),
+		'hanoi' => array(
+			'url' => '%2$s/images/headers/hanoi.jpg',
+			'thumbnail_url' => '%s/images/headers/hanoi-thumbnail.jpg',
+			/* translators: header image description */
+			'description' => __( 'Hanoi Plant', 'twentyeleven' )
+		)
+	) );
+
+}
