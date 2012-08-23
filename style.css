@@ -99,3 +99,8 @@ Version:        0.1
 div.comments-link > a{
 	visibility: hidden !important;
 }
+/*hide visibility icons in sidebar widget*/
+ul > li > a > div.copingblog-visibility-icon {
+	visibility: hidden !important;
+	height: 12px;
+}
