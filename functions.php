@@ -236,7 +236,8 @@ function copingblog_modified_post_title ($title, $id)
  	$post = get_post($id);
 
 	if ( !is_admin() && empty($post->post_password) && 'private' != $post->post_status ) {
-    	$title = '<img title="&Ouml;ffentlich" src="' . get_stylesheet_directory_uri() . '/images/icons/glyphicons_010_envelope.png" />&nbsp;&nbsp;' . $title;
+    	$title = '<div class="copingblog-visibility-icon"><img title="&Ouml;ffentlich" src="' 
+			. get_stylesheet_directory_uri() . '/images/icons/glyphicons_010_envelope.png" /></div>' . $title;
   	}
   	return $title;
 }
@@ -248,7 +249,8 @@ function bl_remove_protected_title( $title )
 {
     // Return only the title portion as defined by %s, not the additional 
     // 'Protected: ' as added in core
-    return '<img title="&Ouml;ffentlich mit Passwort" src="' . get_stylesheet_directory_uri() . '/images/icons/glyphicons_128_message_lock.png" />&nbsp;&nbsp;' . "%s";
+    return '<div class="copingblog-visibility-icon"><img  title="&Ouml;ffentlich mit Passwort" src="' 
+		. get_stylesheet_directory_uri() . '/images/icons/glyphicons_128_message_lock.png" /></div>' . "%s";
 }
 
 add_filter( 'private_title_format', 'bl_remove_private_title' );
@@ -257,7 +259,8 @@ function bl_remove_private_title( $title )
 {
     // Return only the title portion as defined by %s, not the additional 
     // 'Private: ' as added in core
-    return '<img title="Privat" src="' . get_stylesheet_directory_uri() . '/images/icons/glyphicons_126_message_ban.png" />&nbsp;&nbsp;' . "%s";
+    return '<div class="copingblog-visibility-icon"><img title="Privat" src="' 
+		. get_stylesheet_directory_uri() . '/images/icons/glyphicons_126_message_ban.png" /></div>' . "%s";
 }
 
 //deregister the header images of Twenty Eleven, and register a few new RAW header images//

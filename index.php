@@ -26,12 +26,18 @@ get_header(); ?>
 					?>
 					<?php if($current_user->ID > 0): ?>
 					<div id="new-posting-copingblog" class="box-left-copingblog box-shadow-copingblog">
-					<div>
+					
 						<h1 class="entry-title">Einen neuen Artikel schreiben</a></h1>
-						<a href="<?php echo $current_user_blog->siteurl ?>/wp-admin/post-new.php">&Ouml;ffentlich</a> | 
-						<a href="<?php echo $current_user_blog->siteurl ?>/wp-admin/post-new.php?visi=pwd">&Ouml;ffentlich mit Passwort</a> | 
-						<a href="<?php echo $current_user_blog->siteurl ?>/wp-admin/post-new.php?visi=private">Privat</a>
-					</div>
+						<a href="<?php echo $current_user_blog->siteurl ?>/wp-admin/post-new.php">
+							<img title="&Ouml;ffentlich" src="<?php echo get_stylesheet_directory_uri() ?>/images/icons/glyphicons_010_envelope.png" />
+							&Ouml;ffentlich</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
+						<a href="<?php echo $current_user_blog->siteurl ?>/wp-admin/post-new.php?visi=pwd">
+							<img title="&Ouml;ffentlich mit Passwort" src="<?php echo get_stylesheet_directory_uri() ?>/images/icons/glyphicons_128_message_lock.png" />
+							&Ouml;ffentlich mit Passwort</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
+						<a href="<?php echo $current_user_blog->siteurl ?>/wp-admin/post-new.php?visi=private">
+							<img title="&Ouml;ffentlich mit Passwort" src="<?php echo get_stylesheet_directory_uri() ?>/images/icons/glyphicons_126_message_ban.png" />
+							Privat</a>
+					
 					</div>
 					<?php endif;?>
 					<?php //restore_current_blog(); ?>

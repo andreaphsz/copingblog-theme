@@ -54,6 +54,8 @@ Version:        0.1
 #new-posting-copingblog{
 	padding-bottom: 10px;
 	margin-bottom: 20px;
+	border: 3px solid #3D95D8;
+
 }
 
 .box-right-copingblog{
@@ -87,4 +89,13 @@ Version:        0.1
 	background-color: inherit;
 	border: 0;
 	margin-left: -26%;
+}
+
+.copingblog-visibility-icon {
+	margin-left: 109%;
+	margin-bottom: -6.5%;
+}
+
+div.comments-link > a{
+	visibility: hidden !important;
 }
