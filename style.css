@@ -9,6 +9,11 @@ Version:        0.1
 
 @import url("../twentyeleven/style.css");
 
+body {
+	min-width: 960px;
+	max-width: 960px;
+	margin: 0 auto;
+}
 
 #page{
 	background-color: inherit;
@@ -92,15 +97,17 @@ Version:        0.1
 }
 
 .copingblog-visibility-icon {
-	margin-left: 109%;
+	margin-left: 107%;
 	margin-bottom: -6.5%;
+	margin-top: -2%;
 }
-
+.hentry {
+	margin: 0;
+}
 div.comments-link > a{
 	visibility: hidden !important;
 }
 /*hide visibility icons in sidebar widget*/
 ul > li > a > div.copingblog-visibility-icon {
-	visibility: hidden !important;
-	height: 12px;
+	display: none !important;
 }
