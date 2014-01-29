@@ -14,7 +14,7 @@ if ( 'content' != $current_layout ) :
 ?>
 		<div id="secondary" class="widget-area box-right-copingblog box-shadow-copingblog" role="complementary">
 			<aside id="wp_sidebarlogin" class="widget">
-				<?php the_widget('Sidebar_Login_Widget',NULL,array('before_title'=>'<h3 class="widget-title">', 'after_title'=>'</h3>'))?>
+				<?php the_widget('Sidebar_Login_Widget', array('show_lost_password_link'=>1, 'show_register_link'=>1, 'logged_in_links'=>"Dashboard | %admin_url%\nProfile | %admin_url%/profile.php\nLogout | %logout_url%"), array('before_title'=>'<h3 class="widget-title">', 'after_title'=>'</h3>'))?>
 			</aside>
 			<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) : ?>
 				
