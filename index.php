@@ -23,8 +23,12 @@ get_header(); ?>
 						$current_user_blog = get_active_blog_for_user($current_user->ID);
 						//switch_to_blog($current_user_blog->blog_id);
 						//var_dump($current_user_blog);
+						$menu_tumblr = get_site_option( 'cb_menu_tumblr' );
+						$menu_blogpr = get_site_option( 'cb_menu_blogpr' );
+						
 					?>
 					<?php if($current_user->ID > 0): ?>
+					<?php if(isset($menu_tumblr) && $menu_tumblr==1): ?>
 					<div id="new-posting-copingblog" class="box-left-copingblog box-shadow-copingblog">
 					
 						<h1 class="entry-title">Einen neuen Artikel schreiben</a></h1>
@@ -39,6 +43,23 @@ get_header(); ?>
 							Privat</a>
 					
 					</div>
+					<?php endif;?>
+					<?php if(isset($menu_blogpr) && $menu_blogpr==1): ?>
+					<div id="bloggingtool-copingblog" class="box-left-copingblog box-shadow-copingblog">
+					
+						<h1 class="entry-title">Blogging Tool</a></h1>
+						<a href="<?php echo $current_user_blog->siteurl ?>/wp-admin/admin.php?page=feinplanung_menu">
+							<img title="Feinplanung" src="<?php echo get_stylesheet_directory_uri() ?>/images/icons/glyphicons_119_table.png" />
+							Feinplanung</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
+						<a href="<?php echo $current_user_blog->siteurl ?>/wp-admin/admin.php?page=reflexion_menu">
+							<img title="Reflexion" src="<?php echo get_stylesheet_directory_uri() ?>/images/icons/glyphicons_080_retweet.png" />
+							Reflexion</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
+						<a href="<?php echo $current_user_blog->siteurl ?>/wp-admin/admin.php?page=evaluation_menu">
+							<img title="Evaluation" src="<?php echo get_stylesheet_directory_uri() ?>/images/icons/glyphicons_041_charts.png" />
+							Evaluation</a>
+					
+					</div>
+					<?php endif;?>
 					<?php endif;?>
 					<?php //restore_current_blog(); ?>
 				
