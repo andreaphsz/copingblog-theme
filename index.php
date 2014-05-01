@@ -49,15 +49,15 @@ get_header(); ?>
 					
 						<h1 class="entry-title">Blogging Tool</a></h1>
 						<a href="<?php echo $current_user_blog->siteurl ?>/wp-admin/admin.php?page=feinplanung_menu">
-							<img title="Feinplanung" src="<?php echo get_stylesheet_directory_uri() ?>/images/icons/glyphicons_119_table.png" />
-							Feinplanung</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
+							<img title="Planungsinstrumente" src="<?php echo get_stylesheet_directory_uri() ?>/images/icons/glyphicons_119_table.png" />
+							Planungsinstrumente</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
 						<a href="<?php echo $current_user_blog->siteurl ?>/wp-admin/admin.php?page=reflexionps_menu">
 							<img title="Reflexion PS" src="<?php echo get_stylesheet_directory_uri() ?>/images/icons/glyphicons_082_roundabout.png" />
 							Reflexion PS</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 						<?php if (cb_get_user_experimental_group() != CB_GROUP_CTRL): ?>
 						<a href="<?php echo $current_user_blog->siteurl ?>/wp-admin/admin.php?page=reflexion_menu">
-							<img title="Reflexion" src="<?php echo get_stylesheet_directory_uri() ?>/images/icons/glyphicons_080_retweet.png" />
-							Reflexion</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+							<img title="Bloggen" src="<?php echo get_stylesheet_directory_uri() ?>/images/icons/glyphicons_080_retweet.png" />
+							Bloggen</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 						<?php endif;?>
 						<a href="<?php echo $current_user_blog->siteurl ?>/wp-admin/admin.php?page=evaluation_menu">
 							<img title="Evaluation" src="<?php echo get_stylesheet_directory_uri() ?>/images/icons/glyphicons_041_charts.png" />
