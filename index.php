@@ -48,21 +48,21 @@ get_header(); ?>
 					<div id="bloggingtool-copingblog" class="box-left-copingblog box-shadow-copingblog">
 					
 						<h1 class="entry-title">Blogging Tool</a></h1>
-						<a href="<?php echo $current_user_blog->siteurl ?>/wp-admin/admin.php?page=feinplanung_menu">
+					<!--	<a href="<?php echo $current_user_blog->siteurl ?>/wp-admin/admin.php?page=feinplanung_menu">
 							<img title="Planungsinstrumente" src="<?php echo get_stylesheet_directory_uri() ?>/images/icons/glyphicons_119_table.png" />
 							Planungsinstrumente</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
 						<a href="<?php echo $current_user_blog->siteurl ?>/wp-admin/admin.php?page=reflexionps_menu">
 							<img title="Reflexion PS" src="<?php echo get_stylesheet_directory_uri() ?>/images/icons/glyphicons_082_roundabout.png" />
-							Reflexion PS</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-						<?php if (cb_get_user_experimental_group() != CB_GROUP_CTRL): ?>
+						 	Reflexion PS</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+				-->		<?php if (cb_get_user_experimental_group() != CB_GROUP_CTRL): ?>
 						<a href="<?php echo $current_user_blog->siteurl ?>/wp-admin/admin.php?page=reflexion_menu">
 							<img title="Bloggen" src="<?php echo get_stylesheet_directory_uri() ?>/images/icons/glyphicons_080_retweet.png" />
-							Bloggen</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-						<?php endif;?>
+							Bloggen</a>&nbsp;&nbsp;&nbsp;&nbsp;
+			<!--			<?php endif;?>
 						<a href="<?php echo $current_user_blog->siteurl ?>/wp-admin/admin.php?page=evaluation_menu">
 							<img title="Evaluation" src="<?php echo get_stylesheet_directory_uri() ?>/images/icons/glyphicons_041_charts.png" />
 							Evaluation</a>
-					
+				-->	
 					</div>
 					<?php endif;?>
 					<?php endif;?>
