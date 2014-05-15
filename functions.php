@@ -86,6 +86,7 @@ add_theme_support( 'custom-header', $custom_header_support );
 
 function blogpraktikum_color_option()
 {
+	// see custom-header.php
 	if ( isset( $_POST['blogpraktikum-color'] ) ) {
 		//check_admin_referer( 'custom-header-options', '_wpnonce-custom-header-options' );
 		$_POST['blogpraktikum-color'] = str_replace( '#', '', $_POST['blogpraktikum-color'] );
@@ -100,10 +101,10 @@ function blogpraktikum_color_option()
 	<table class="form-table">
 	<tbody>
 <!--	<tr valign="top">
-	<th scope="row"><?php echo "Blogpraktikum Farbe"; ?></th>
+	<th scope="row"><?php //echo "Blogpraktikum Farbe"; ?></th>
 	<td>
 		<p>
-		<label><input type="checkbox" name="display-header-text" id="display-header-text"<?php checked( display_header_text() ); ?> /> <?php _e( 'Show header text with your image.' ); ?></label>
+		<label><input type="checkbox" name="display-header-text" id="display-header-text"<?php //checked( display_header_text() ); ?> /> <?php //_e( 'Show header text with your image.' ); ?></label>
 		</p>
 	</td>
 	</tr>
@@ -112,13 +113,27 @@ function blogpraktikum_color_option()
 	<th scope="row"><?php echo "Blogpraktikum Farbe <br>(default: #298951)"; ?></th>
 	<td>
 		<p>
-			<input type="text" name="blogpraktikum-color" id="blogpraktikum-color" value="#<?php echo esc_attr( get_theme_mod('blogpraktikum_color') ); ?>" />
-	<!--	<input type="text" name="blogpraktikum-color" id="blogpraktikum-color" value="#<?php echo esc_attr( get_header_textcolor() ); ?>" />
-		<input type="text" name="blogpraktikum-color" id="blogpraktikum-color" value="#<?php echo esc_attr( get_theme_support( 'custom-header', 'default-text-color' ) ); ?>" />
+			<div class="wp-picker-container">
+				<a tabindex="0" class="wp-color-result-2" title="Select Color" data-current="Current Color" style="background-color: rgb(0, 0, 0);">
+				</a>
+				<span class="wp-picker-input-wrap-2">
+					<input type="text" name="blogpraktikum-color" id="blogpraktikum-color" value="#<?php echo esc_attr( get_theme_mod('blogpraktikum_color') ); ?>" data-default-color="#000" class="wp-color-picker" style="display: none;">
+					<input type="button" class="button button-small hidden wp-picker-default" value="Default">
+				</span>
+				<div class="wp-picker-holder-2"></div>
+			</div>
+			<span class="description hide-if-js">Default: #000
+			</span>	
+		</p>
+			
+<!--			<input type="text" name="blogpraktikum-color" id="blogpraktikum-color" value="#<?php //echo esc_attr( get_theme_mod('blogpraktikum_color') ); ?>" />
+	<!--	<input type="text" name="blogpraktikum-color" id="blogpraktikum-color" value="#<?php //echo esc_attr( get_header_textcolor() ); ?>" />
+		<input type="text" name="blogpraktikum-color" id="blogpraktikum-color" value="#<?php //echo esc_attr( get_theme_support( 'custom-header', 'default-text-color' ) ); ?>" />
 	-->
-			<a href="#2" class="hide-if-no-js" id="pickcolor-2"><?php _e( 'Select a Color' ); ?></a>
+	<!--		<a href="#2" class="hide-if-no-js" id="pickcolor-2"><?php // _e( 'Select a Color' ); ?></a>
 		</p>
 		<div id="color-picker-2" style="z-index: 100; background:#eee; border:1px solid #ccc; position:absolute; display:none;"></div>
+	-->
 	</td>
 	</tr>
 
@@ -150,7 +165,7 @@ function js_()
 		//$('#name').css('color', color);
 		//$('#desc').css('color', color);
 		$('#blogpraktikum-color').val(color);
-		farbtastic2.setColor(color);
+		//farbtastic2.setColor(color);
 	}
 
 	function toggle_text2() 
@@ -173,9 +188,26 @@ function js_()
 	}
 
 	$(document).ready(function() {
+		
+		var blogpraktikum_color = $('#blogpraktikum-color');
+		//header_text_fields = $('.displaying-header-text');
+		blogpraktikum_color.wpColorPicker({
+			change: function( event, ui ) {
+				pickColor2( blogpraktikum_color.wpColorPicker('color') );
+			},
+			clear: function() {
+				pickColor2( '' );
+			}
+		});
+		
+	//	$('#display-header-text').click( toggle_text );
+		<?php if ( ! display_header_text() ) : ?>
+	//	toggle_text();
+		<?php endif; ?>
+		
 		//alert("hallo")
 		//header_text_fields = $('.displaying-header-text');
-		$('#pickcolor-2').click(function(e) {
+/*		$('#pickcolor-2').click(function(e) {
 			e.preventDefault();
 			$('#color-picker-2').show();
 		});
@@ -206,11 +238,11 @@ function js_()
 					$(this).fadeOut(2);
 			});
 		});
-
-		farbtastic2 = $.farbtastic('#color-picker-2', function(color) { 
+*/
+	/*	farbtastic2 = $.farbtastic('#color-picker-2', function(color) { 
 			pickColor2(color); 
 		});
-		toggle_text2();
+	 */   //toggle_text2();
 /*	//	<?php if ( display_header_text() ) { ?>
 	//	pickColor('#<?php echo get_header_textcolor(); ?>');
 	//	<?php } else { ?>
