@@ -107,7 +107,7 @@ function blogpraktikum_color_option()
 				<a tabindex="0" class="wp-color-result-2" title="Select Color" data-current="Current Color" style="background-color: rgb(0, 0, 0);">
 				</a>
 				<span class="wp-picker-input-wrap-2">
-					<input type="text" name="blogpraktikum-color" id="blogpraktikum-color" value="#<?php echo esc_attr( get_theme_mod('blogpraktikum_color') ); ?>" data-default-color="#000" class="wp-color-picker" style="display: none;">
+					<input type="text" name="blogpraktikum-color" id="blogpraktikum-color" value="#<?php echo esc_attr( get_theme_mod('blogpraktikum_color') ); ?>" data-default-color="#298951" class="wp-color-picker" style="display: none;">
 					<input type="button" class="button button-small hidden wp-picker-default" value="Default">
 				</span>
 				<div class="wp-picker-holder-2"></div>
